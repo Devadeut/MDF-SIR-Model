@@ -1,12 +1,12 @@
 ---
 title: SIR Model
-emoji: 🐢
+emoji: 🌍
 colorFrom: indigo
 colorTo: indigo
 sdk: streamlit
 sdk_version: 1.32.2
 app_file: app.py
-pinned: false
+pinned: true
 short_description: 'Created The ModECI example MDF model: SIR_model'
 ---
 
