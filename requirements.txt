@@ -1,11 +1,11 @@
 modeci_mdf
 graphviz 
-cairo >=1.16.0,<2.0a0
-expat >=2.2.10,<3.0a0
-getopt-win32 >=0.1,<0.2.0a0
-glib >=2.69.1,<3.0a0
-gts >=0.7.6,<0.8.0a0
-libgd >=2.3.3,<2.4.0a0
-pango >=1.50.7,<2.0a0
-vc >=14.1,<15.0a0
-vs2015_runtime >=14.16.27012,<15.0a0
+cairo 
+expat 
+getopt-win32 
+glib 
+gts 
+libgd 
+pango 
+vc 
+vs2015_runtime 
