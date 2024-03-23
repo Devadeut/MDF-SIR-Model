@@ -1,11 +1,2 @@
 modeci_mdf
 graphviz 
-cairo 
-expat 
-getopt-win32 
-glib 
-gts 
-libgd 
-pango 
-vc 
-vs2015_runtime 
