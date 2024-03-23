@@ -1,2 +1,2 @@
 modeci_mdf
-graphviz
+graphviz 2.50.0
