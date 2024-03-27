@@ -10,6 +10,9 @@ import matplotlib.pyplot as plt
 import os
 import sys
 import streamlit as st
+from matplotlib.animation import FuncAnimation  
+
+# Rest of the code remains the same
 
 def main(total_population, initial_infected, initial_recovered, beta, gamma, mode=None):
     # Initialize the Model
