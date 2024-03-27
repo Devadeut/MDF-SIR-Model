@@ -204,6 +204,7 @@ def main(total_population, initial_infected, initial_recovered, beta, gamma, mod
         ax.set_title('Population over time')
         ax.legend()
         ax.grid(True)
+       
     
         def animate(frame):
             ax.clear()
@@ -217,6 +218,7 @@ def main(total_population, initial_infected, initial_recovered, beta, gamma, mod
             ax.set_title('Population over time')
             ax.legend()
             ax.grid(True)
+            return[ax]
     
         anim = FuncAnimation(fig2, animate, frames=times, interval=50, blit=True)
         plt.show()
