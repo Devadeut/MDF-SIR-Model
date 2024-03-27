@@ -1,5 +1,12 @@
+import os
+import sys
 import streamlit as st
 from SIR_model import main as run_sir_model
+
+# Add Graphviz bin directory to PATH
+graphviz_bin_dir = os.path.join(sys.prefix, "bin")
+os.environ["PATH"] += os.pathsep + graphviz_bin_dir
+
 
 # Streamlit app title
 st.title('SIR Model Simulation')
