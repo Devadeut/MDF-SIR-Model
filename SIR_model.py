@@ -205,11 +205,11 @@ def main(total_population, initial_infected, initial_recovered, beta, gamma, mod
         ax.legend()
         ax.grid(True)
     
-        def animate(i):
+        def animate(frame):
             ax.clear()
-            ax.plot(times[:i+1], s[:i+1], label='Susceptible', color='blue')
-            ax.plot(times[:i+1], i[:i+1], label='Infected', color='orange')
-            ax.plot(times[:i+1], r[:i+1], label='Recovered', color='green')
+            ax.plot(times[:frame+1], s[:frame+1], label='Susceptible', color='blue')
+            ax.plot(times[:frame+1], infected[:frame+1], label='Infected', color='orange')  # Using a different variable name
+            ax.plot(times[:frame+1], r[:frame+1], label='Recovered', color='green')
             ax.xaxis.set_major_locator(plt.MaxNLocator(6))
             ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: '{:.1f}'.format(x)))
             ax.set_xlabel('Time')
