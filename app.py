@@ -17,46 +17,13 @@ st.title('SIR Model Simulation')
 st.write('This application simulates and visualizes the SIR model for infectious disease spread.')
 
 
+# Buttons to control the simulation
 if st.button('Run SIR Model'):
     # Call the modified run_sir_model function with "run" mode
-    fig, axs = plt.subplots(1, 3, figsize=(15, 5), sharey=True)
-    times = []
-    s = []
-    i = []
-    r = []
-
-    def animate(t):
-        times.append(t)
-        print("======   Evaluating at t = %s  ======" % (t))
-        eg.evaluate(time_increment=1)
-
-        s.append(eg.enodes["id"].evaluable_outputs["out_port1"].curr_value)
-        i.append(eg.enodes["id"].evaluable_outputs["out_port2"].curr_value)
-        r.append(eg.enodes["id"].evaluable_outputs["out_port3"].curr_value)
-
-        # Update plots
-        axs[0].cla()
-        axs[1].cla()
-        axs[2].cla()
-
-        # ... (Same plotting code as before)
-        
-        figures = run_sir_model(mode="run")
-        for fig in figures:
-            st.pyplot(fig, use_container_width=True)
-
-    from matplotlib.animation import FuncAnimation
-    ani = FuncAnimation(fig, animate, frames=np.linspace(0, 100, 100), interval=50, repeat=False)
-
+    figures = run_sir_model(mode="run")
+    for fig in figures:
+        st.pyplot(fig)
     st.success('Model executed successfully.')
-
-# Buttons to control the simulation
-# if st.button('Run SIR Model'):
-#     # Call the modified run_sir_model function with "run" mode
-#     figures = run_sir_model(mode="run")
-#     for fig in figures:
-#         st.pyplot(fig)
-#     st.success('Model executed successfully.')
 
 if st.button('Generate Graph'):
     # Call the modified run_sir_model function with "graph" mode
