@@ -42,6 +42,20 @@ if st.button('Generate Graph'):
 # Instructions or description can be added here
 st.write('The SIR model divides the population into three categories: Susceptible (S), Infected (I), and Recovered (R). The model simulates how an infectious disease spreads and is managed within a population over time.')
 
+# Define the lists to store the population data over time
+times = []  # List of time points
+s = []  # List of susceptible population
+i = []  # List of infected population
+r = []  # List of recovered population
+
+# Run the SIR model simulation and store the population data at each time step
+while t <= duration:
+    times.append(t)
+    # Evaluate the model at each time step and store the population values
+    s.append(eg.enodes["id"].evaluable_outputs["out_port1"].curr_value)
+    i.append(eg.enodes["id"].evaluable_outputs["out_port2"].curr_value)
+    r.append(eg.enodes["id"].evaluable_outputs["out_port3"].curr_value)
+    t += dt
 # Create an animated graph
 fig = go.Figure(data=[
     go.Scatter(x=times, y=s, name='Susceptible', mode='lines'),
