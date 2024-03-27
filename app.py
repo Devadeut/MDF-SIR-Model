@@ -33,6 +33,7 @@ with st.expander("Model Parameters", expanded=True):
         beta = st.slider("Infection Rate (β)", min_value=0.0, max_value=1.0, value=0.3)
         gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1)
 
+st.write('The SIR model divides the population into three categories: Susceptible (S), Infected (I), and Recovered (R). The model simulates how an infectious disease spreads and is managed within a population over time.')
 
 # Buttons to control the simulation
 run_model_button = st.button('Run Model and Generate Plots')
@@ -54,5 +55,4 @@ if generate_graph_button:
     st.success('Graph generated successfully with user input and slider values.')
 
     
-# Instructions or description can be added here
-st.write('The SIR model divides the population into three categories: Susceptible (S), Infected (I), and Recovered (R). The model simulates how an infectious disease spreads and is managed within a population over time.')
+
