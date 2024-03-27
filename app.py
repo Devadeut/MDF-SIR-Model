@@ -23,10 +23,10 @@ st.write('This application simulates and visualizes the SIR model for infectious
 css = """
 <style>
 .stButton > button {
-    border: 2px solid #f7d2d3;
+    border: 2px solid #fadedf;
     border-radius: 10px;  # Rounded corners
     color: white;
-    background-color: #f7d2d3;  # Green background
+    background-color: #fcebeb;  
     padding: 10px 24px;  # Some padding
     cursor: pointer;
     font-size: 16px;
@@ -34,7 +34,7 @@ css = """
 
 /* Change color on hover */
 .stButton > button:hover {
-    background-color: #faa0a3;
+    background-color: #defaeb;
 }
 </style>
 """
