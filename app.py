@@ -34,7 +34,7 @@ css = """
 
 /* Change color on hover */
 .stButton > button:hover {
-    background-color: #defaeb;
+    background-color: #fcebeb;
 }
 </style>
 """
