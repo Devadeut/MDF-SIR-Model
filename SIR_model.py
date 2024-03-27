@@ -221,6 +221,8 @@ def main(total_population, initial_infected, initial_recovered, beta, gamma, mod
             return[ax]
     
         anim = FuncAnimation(fig2, animate, frames=times, interval=50, blit=True)
+        # Save the animated plot
+        anim.save('animated_plot.gif', writer='imagemagick')
         plt.show()
 
         return [fig1, anim]
