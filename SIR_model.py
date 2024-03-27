@@ -9,6 +9,7 @@ from modeci_mdf.mdf import*
 import matplotlib.pyplot as plt
 import os
 import sys
+import streamlit as st
 
 def main(mode=None):
     # Initialize the Model
