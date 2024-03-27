@@ -23,10 +23,10 @@ st.write('This application simulates and visualizes the SIR model for infectious
 css = """
 <style>
 .stButton > button {
-    border: 2px solid #4CAF50;
-    border-radius: 20px;  # Rounded corners
+    border: 2px solid #f7d2d3;
+    border-radius: 10px;  # Rounded corners
     color: white;
-    background-color: #4CAF50;  # Green background
+    background-color: #f7d2d3;  # Green background
     padding: 10px 24px;  # Some padding
     cursor: pointer;
     font-size: 16px;
@@ -34,16 +34,13 @@ css = """
 
 /* Change color on hover */
 .stButton > button:hover {
-    background-color: #45a049;
+    background-color: #faa0a3;
 }
 </style>
 """
 
 st.markdown(css, unsafe_allow_html=True)
 
-# Your Streamlit application's buttons
-if st.button('Click me'):
-    st.write('Button clicked!')
 
 
 # Create an expander for model parameters
