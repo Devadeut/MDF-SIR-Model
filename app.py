@@ -18,12 +18,19 @@ st.title('SIR Model Simulation')
 # Introduction
 st.write('This application simulates and visualizes the SIR model for infectious disease spread.')
 
-# Get user inputs for model parameters
-total_population = st.number_input("Total Population", min_value=1, value=1000, step=1)
-initial_infected = st.number_input("Initial Infected Population", min_value=0, max_value=total_population, value=1)
-initial_recovered = st.number_input("Initial Recovered Population", min_value=0, max_value=total_population - initial_infected, value=0)
-beta = st.slider("Infection Rate (β)", min_value=0.0, max_value=1.0, value=0.3, step=0.01)
-gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1, step=0.01)
+
+# Create a 2-column layout
+col1, col2 = st.columns(2)
+# Place number input and sliders in the first column
+with col1:
+    total_population = st.number_input("Total Population", value=1000, min_value=1)
+    initial_infected = st.number_input("Initial Infected Population", value=1, min_value=0)
+    initial_recovered = st.number_input("Initial Recovered Population", value=0, min_value=0)
+# Place the other sliders in the second column
+with col2:
+    beta = st.slider("Infection Rate (β)", min_value=0.0, max_value=1.0, value=0.3)
+    gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1)
+
 
 
 # Call the modified run_sir_model function with user input and slider values
