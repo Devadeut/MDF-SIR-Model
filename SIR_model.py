@@ -18,12 +18,19 @@ def main(mode=None):
     sir_graph = Graph(id="SIR_Graph")
     sir_model.graphs.append(sir_graph)
 
-    # Parameters for the model
-    total_population = 1000
-    initial_infected = 1
-    initial_recovered = 0
-    beta = 0.3  # Infection rate
-    gamma = 0.1  # Recovery rate
+    # Get user inputs for model parameters
+    total_population = st.number_input("Total Population", min_value=1, value=1000, step=1)
+    initial_infected = st.number_input("Initial Infected Population", min_value=0, max_value=total_population, value=1)
+    initial_recovered = st.number_input("Initial Recovered Population", min_value=0, max_value=total_population - initial_infected, value=0)
+    beta = st.slider("Infection Rate (β)", min_value=0.0, max_value=1.0, value=0.3, step=0.01)
+    gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1, step=0.01)
+
+    # # Parameters for the model
+    # total_population = 1000
+    # initial_infected = 1
+    # initial_recovered = 0
+    # beta = 0.3  # Infection rate
+    # gamma = 0.1  # Recovery rate
     initial_susceptible = total_population - initial_infected - initial_recovered
 
 
