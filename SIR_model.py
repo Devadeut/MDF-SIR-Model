@@ -189,16 +189,33 @@ def main(total_population, initial_infected, initial_recovered, beta, gamma, mod
         plt.show()
     
     
-        # Plotting
-        fig2 = plt.figure(figsize=(10, 5))
-        plt.plot(times, s, label='Susceptible')
-        plt.plot(times, i, label='Infected')
-        plt.plot(times, r, label='Recovered')
-        plt.xlabel('Time')
-        plt.ylabel('Population')
-        plt.title('Population over time')
-        plt.legend()
-        plt.grid(True)
+        # Create an animated line graph
+        fig2, ax = plt.subplots()
+        ax.plot(times, s, label='Susceptible', color='blue')
+        ax.plot(times, i, label='Infected', color='orange')
+        ax.plot(times, r, label='Recovered', color='green')
+        ax.xaxis.set_major_locator(plt.MaxNLocator(6))
+        ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: '{:.1f}'.format(x)))
+        ax.set_xlabel('Time')
+        ax.set_ylabel('Population')
+        ax.set_title('Population over time')
+        ax.legend()
+        ax.grid(True)
+    
+        def animate(i):
+            ax.clear()
+            ax.plot(times, s, label='Susceptible', color='blue')
+            ax.plot(times, i, label='Infected', color='orange')
+            ax.plot(times, r, label='Recovered', color='green')
+            ax.xaxis.set_major_locator(plt.MaxNLocator(6))
+            ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: '{:.1f}'.format(x)))
+            ax.set_xlabel('Time')
+            ax.set_ylabel('Population')
+            ax.set_title('Population over time')
+            ax.legend()
+            ax.grid(True)
+    
+        anim = FuncAnimation(fig2, animate, frames=times, interval=50, blit=True)
         plt.show()
 
         return [fig1, fig2]
