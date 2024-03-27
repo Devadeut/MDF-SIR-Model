@@ -38,7 +38,6 @@ figures = run_sir_model(total_population, initial_infected, initial_recovered, b
 for fig in figures:
     if isinstance(fig, matplotlib.animation.FuncAnimation):
         st.write("Animated Plot:")
-        fig.save('animated_plot.gif', writer='imagemagick')  # Save the animated plot as a GIF
         st.image('animated_plot.gif')  # Display the animated plot in Streamlit
     else:
         st.pyplot(fig)
