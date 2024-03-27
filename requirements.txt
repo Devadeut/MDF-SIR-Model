@@ -1,3 +1,4 @@
 modeci_mdf
 graphviz 
 ipython
+plotly
