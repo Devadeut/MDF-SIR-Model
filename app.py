@@ -19,27 +19,59 @@ st.title('SIR Model Simulation')
 st.write('This application simulates and visualizes the SIR model for infectious disease spread.')
 
 
-# Custom CSS to inject
+
+# Custom CSS to inject for Streamlit buttons
 css = """
 <style>
 .stButton > button {
-    border: 2px solid #fadedf;
-    border-radius: 10px;  # Rounded corners
-    color: white;
-    background-color: #fcebeb;  
-    padding: 10px 24px;  # Some padding
-    cursor: pointer;
-    font-size: 16px;
+  align-items: center;
+  background-color: #FCFCFD;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+              rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+              #D6D6E7 0 -3px 0 inset;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 16px;
+  transition: box-shadow .15s, transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: box-shadow, transform;
 }
 
-/* Change color on hover */
+.stButton > button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset,
+              rgba(45, 35, 66, 0.4) 0 2px 4px,
+              rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+              #D6D6E7 0 -3px 0 inset;
+}
+
 .stButton > button:hover {
-    background-color: #fcebeb;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+              rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+              #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.stButton > button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
 }
 </style>
 """
 
 st.markdown(css, unsafe_allow_html=True)
+
+
+
 
 
 
