@@ -1,2 +1,3 @@
 modeci_mdf
 graphviz 
+ipython
