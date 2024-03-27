@@ -11,6 +11,7 @@ import os
 import sys
 from matplotlib.animation import FuncAnimation  
 import imageio
+import numpy as np
 
 # Rest of the code remains the same
 
