@@ -19,11 +19,10 @@ st.title('SIR Model Simulation')
 st.write('This application simulates and visualizes the SIR model for infectious disease spread.')
 
 
-# Create a 2-column layout
-col1, col2 = st.columns(2)
 # Create an expander for model parameters
 with st.expander("Model Parameters", expanded=True):
-    
+    # Create a 2-column layout
+    col1, col2 = st.columns(2)
     # Place number input and sliders in the first column
     with col1:
         total_population = st.number_input("Total Population", value=1000, min_value=1)
@@ -35,13 +34,7 @@ with st.expander("Model Parameters", expanded=True):
         gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1)
 
 
-
-# Call the modified run_sir_model function with user input and slider values
-# figures = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
-# for fig in figures:
-#     st.pyplot(fig)
-# st.success('Model executed successfully with user input and slider values.')
-
+# Buttons to control the simulation
 if st.button('Run Model and Generate Plots'):
     # Call the modified run_sir_model function with user input and slider values
     fig,gif_path = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
@@ -52,8 +45,7 @@ if st.button('Run Model and Generate Plots'):
     st.success('Model executed successfully with user input and slider values.')
 
 
-# Buttons to control the simulation
-if st.button('Generate Graph'):
+else if st.button('Generate Graph'):
     # Call the modified run_sir_model function with "graph" mode
     image_path=run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="graph")
     st.image(image_path,caption="SIR Model Graph")
