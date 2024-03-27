@@ -35,21 +35,24 @@ with st.expander("Model Parameters", expanded=True):
 
 
 # Buttons to control the simulation
-if st.button('Run Model and Generate Plots'):
+run_model_button = st.button('Run Model and Generate Plots')
+generate_graph_button = st.button('Generate Graph')
+
+if run_model_button:
     # Call the modified run_sir_model function with user input and slider values
-    fig,gif_path = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
+    fig, gif_path = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
     st.write("Static Population Model Output:")
     st.pyplot(fig)
-    st.write("Animated Population Model Output:") # Display the GIF
+    st.write("Animated Population Model Output:")  # Display the GIF
     st.image(gif_path, caption='SIR Model Animation')
     st.success('Model executed successfully with user input and slider values.')
 
-
-elif st.button('Generate Graph'):
+if generate_graph_button:
     # Call the modified run_sir_model function with "graph" mode
-    image_path=run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="graph")
-    st.image(image_path,caption="SIR Model Graph")
+    image_path = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="graph")
+    st.image(image_path, caption="SIR Model Graph")
     st.success('Graph generated successfully with user input and slider values.')
+
     
 # Instructions or description can be added here
 st.write('The SIR model divides the population into three categories: Susceptible (S), Infected (I), and Recovered (R). The model simulates how an infectious disease spreads and is managed within a population over time.')
