@@ -223,7 +223,7 @@ def main(total_population, initial_infected, initial_recovered, beta, gamma, mod
         anim = FuncAnimation(fig2, animate, frames=times, interval=50, blit=True)
         plt.show()
 
-        return [fig1, fig2]
+        return [fig1, anim]
 
     elif mode=="graph":
 
