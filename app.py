@@ -39,21 +39,13 @@ for fig in figures:
     if isinstance(fig, matplotlib.animation.FuncAnimation):
         st.write("Animated Plot:")
         fig.save('animated_plot.gif', writer='imagemagick')  # Save the animated plot as a GIF
-        animated_plot = st.image('animated_plot.gif')  # Display the animated plot in Streamlit
-
-        # Display the animated plot frame by frame
-        for frame in fig.new_saved_frame_seq():
-            animated_plot.image(frame)
+        st.image('animated_plot.gif')  # Display the animated plot in Streamlit
     else:
         st.pyplot(fig)
 
-st.success('Model executed successfully with user input and slider values.')
-
 
 st.success('Model executed successfully with user input and slider values.')
 
-
-st.success('Model executed successfully with user input and slider values.')
 
 # Buttons to control the simulation
 if st.button('Generate Graph'):
