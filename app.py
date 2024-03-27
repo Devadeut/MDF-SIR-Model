@@ -27,9 +27,20 @@ gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1,
 
 
 # Call the modified run_sir_model function with user input and slider values
+# figures = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
+# for fig in figures:
+#     st.pyplot(fig)
+# st.success('Model executed successfully with user input and slider values.')
+
+# Call the modified run_sir_model function with user input and slider values
 figures = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
 for fig in figures:
-    st.pyplot(fig)
+    if isinstance(fig, matplotlib.animation.FuncAnimation):
+        st.write("Animated Plot:")
+        st.pyplot(fig)
+    else:
+        st.pyplot(fig)
+
 st.success('Model executed successfully with user input and slider values.')
 
 # Buttons to control the simulation
