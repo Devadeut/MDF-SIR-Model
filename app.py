@@ -19,6 +19,33 @@ st.title('SIR Model Simulation')
 st.write('This application simulates and visualizes the SIR model for infectious disease spread.')
 
 
+# Custom CSS to inject
+css = """
+<style>
+.stButton > button {
+    border: 2px solid #4CAF50;
+    border-radius: 20px;  # Rounded corners
+    color: white;
+    background-color: #4CAF50;  # Green background
+    padding: 10px 24px;  # Some padding
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Change color on hover */
+.stButton > button:hover {
+    background-color: #45a049;
+}
+</style>
+"""
+
+st.markdown(css, unsafe_allow_html=True)
+
+# Your Streamlit application's buttons
+if st.button('Click me'):
+    st.write('Button clicked!')
+
+
 # Create an expander for model parameters
 with st.expander("Model Parameters", expanded=True):
     # Create a 2-column layout
