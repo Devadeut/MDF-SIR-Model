@@ -36,7 +36,7 @@ with st.expander("Model Parameters", expanded=True):
 
 # Buttons to control the simulation
 run_model_button = st.button('Run Model and Generate Plots')
-generate_graph_button = st.button('Generate Graph')
+generate_graph_button = st.button('Generate Computation Graph')
 
 if run_model_button:
     # Call the modified run_sir_model function with user input and slider values
