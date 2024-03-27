@@ -31,23 +31,13 @@ st.write('This application simulates and visualizes the SIR model for infectious
 #     st.image(image_path,caption="SIR Model Graph")
 #     st.success('Graph generated successfully.')
 
-# Input fields for user input
-susceptible_input = st.text_input('Initial Susceptible:', '1000')
-infected_input = st.text_input('Initial Infected:', '1')
-recovered_input = st.text_input('Initial Recovered:', '0')
+# Get user inputs for model parameters
+total_population = st.number_input("Total Population", min_value=1, value=1000, step=1)
+initial_infected = st.number_input("Initial Infected Population", min_value=0, max_value=total_population, value=1)
+initial_recovered = st.number_input("Initial Recovered Population", min_value=0, max_value=total_population - initial_infected, value=0)
+beta = st.slider("Infection Rate (β)", min_value=0.0, max_value=1.0, value=0.3, step=0.01)
+gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1, step=0.01)
 
-# Slider for infection rate (beta)
-beta_slider = st.slider('Infection Rate (beta):', 0, 1, 0.3)
-
-# Slider for recovery rate (gamma)
-gamma_slider = st.slider('Recovery Rate (gamma):', 0, 1, 0.1)
-
-# Create the SIR model with user input and slider values
-total_population = int(susceptible_input)
-initial_infected = int(infected_input)
-initial_recovered = int(recovered_input)
-beta = beta_slider
-gamma = gamma_slider
 
 # Call the modified run_sir_model function with user input and slider values
 figures = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
