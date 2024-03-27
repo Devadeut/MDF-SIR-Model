@@ -21,15 +21,18 @@ st.write('This application simulates and visualizes the SIR model for infectious
 
 # Create a 2-column layout
 col1, col2 = st.columns(2)
-# Place number input and sliders in the first column
-with col1:
-    total_population = st.number_input("Total Population", value=1000, min_value=1)
-    initial_infected = st.number_input("Initial Infected Population", value=1, min_value=0)
-    initial_recovered = st.number_input("Initial Recovered Population", value=0, min_value=0)
-# Place the other sliders in the second column
-with col2:
-    beta = st.slider("Infection Rate (β)", min_value=0.0, max_value=1.0, value=0.3)
-    gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1)
+# Create an expander for model parameters
+with st.expander("Model Parameters", expanded=True):
+    
+    # Place number input and sliders in the first column
+    with col1:
+        total_population = st.number_input("Total Population", value=1000, min_value=1)
+        initial_infected = st.number_input("Initial Infected Population", value=1, min_value=0)
+        initial_recovered = st.number_input("Initial Recovered Population", value=0, min_value=0)
+    # Place the other sliders in the second column
+    with col2:
+        beta = st.slider("Infection Rate (β)", min_value=0.0, max_value=1.0, value=0.3)
+        gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1)
 
 
 
