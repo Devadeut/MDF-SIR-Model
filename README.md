@@ -10,4 +10,6 @@ pinned: true
 short_description: 'Created The ModECI example MDF model: SIR_model'
 ---
 
+The SIR model divides the population into three categories: Susceptible (S), Infected (I), and Recovered (R). The model simulates how an infectious disease spreads and is managed within a population over time.
+
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
