@@ -33,15 +33,22 @@ gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1,
 # st.success('Model executed successfully with user input and slider values.')
 
 # Call the modified run_sir_model function with user input and slider values
-# Call the modified run_sir_model function with user input and slider values
 figures = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
+
 for fig in figures:
     if isinstance(fig, matplotlib.animation.FuncAnimation):
         st.write("Animated Plot:")
         fig.save('animated_plot.gif', writer='imagemagick')  # Save the animated plot as a GIF
-        st.image('animated_plot.gif')  # Display the animated plot in Streamlit
+        animated_plot = st.image('animated_plot.gif')  # Display the animated plot in Streamlit
+
+        # Display the animated plot frame by frame
+        for frame in fig.new_saved_frame_seq():
+            animated_plot.image(frame)
     else:
         st.pyplot(fig)
+
+st.success('Model executed successfully with user input and slider values.')
+
 
 st.success('Model executed successfully with user input and slider values.')
 
