@@ -45,7 +45,7 @@ if st.button('Run Model and Generate Plots'):
     st.success('Model executed successfully with user input and slider values.')
 
 
-else if st.button('Generate Graph'):
+elif st.button('Generate Graph'):
     # Call the modified run_sir_model function with "graph" mode
     image_path=run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="graph")
     st.image(image_path,caption="SIR Model Graph")
