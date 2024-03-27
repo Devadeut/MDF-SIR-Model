@@ -215,9 +215,9 @@ def main(total_population=1000, initial_infected=1, initial_recovered=0, beta=0.
             image = image.reshape(fig.canvas.get_width_height()[::-1] + (3,))
             frames.append(image)
             plt.close(fig)
-
+        gif_path = 'animated_plot.gif'
         # Save the frames as a GIF
-        imageio.mimsave('animated_plot.gif', frames, fps=20) 
+        imageio.mimsave(gif_path, frames, fps=20) 
         # # Create an animated line graph
         # fig2, ax = plt.subplots()
         # ax.plot(times, s, label='Susceptible', color='blue')
@@ -252,7 +252,7 @@ def main(total_population=1000, initial_infected=1, initial_recovered=0, beta=0.
         # plt.show()
 
         # return [fig1, anim]
-        return [fig1]
+        return [fig1, gif_path]
 
     elif mode=="graph":
 
