@@ -33,16 +33,11 @@ gamma = st.slider("Recovery Rate (γ)", min_value=0.0, max_value=1.0, value=0.1,
 # st.success('Model executed successfully with user input and slider values.')
 
 # Call the modified run_sir_model function with user input and slider values
-figures = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
-
-for fig in figures:
-    if isinstance(fig, matplotlib.animation.FuncAnimation):
-        st.write("Animated Plot:")
-        st.image('animated_plot.gif')  # Display the animated plot in Streamlit
-    else:
-        st.pyplot(fig)
-
-
+fig,gif_path = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
+st.write("Static Population Model Output:")
+st.pyplot(fig)
+st.write("Animated Population Model Output:") # Display the GIF
+st.image(gif_path, caption='SIR Model Animation')
 st.success('Model executed successfully with user input and slider values.')
 
 
