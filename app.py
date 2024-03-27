@@ -42,6 +42,9 @@ if st.button('Generate Graph'):
 # Instructions or description can be added here
 st.write('The SIR model divides the population into three categories: Susceptible (S), Infected (I), and Recovered (R). The model simulates how an infectious disease spreads and is managed within a population over time.')
 
+dt = 1
+duration = 100
+t = 0
 # Define the lists to store the population data over time
 times = []  # List of time points
 s = []  # List of susceptible population
