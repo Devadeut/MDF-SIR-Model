@@ -10,7 +10,11 @@ pinned: true
 short_description: 'Created The ModECI example MDF model: SIR_model'
 ---
 
+Computational Graph of SIR Model:
 
+![Computational Graph](sir_model.png "SIR graph")
+
+---
 The SIR model divides the population into three categories: Susceptible (S), Infected (I), and Recovered (R). The model simulates how an infectious disease spreads and is managed within a population over time.
 
 Static Population Model Output:
