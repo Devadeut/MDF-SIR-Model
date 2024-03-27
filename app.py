@@ -39,6 +39,7 @@ with col2:
 #     st.pyplot(fig)
 # st.success('Model executed successfully with user input and slider values.')
 
+if st.button('Run Model and Generate Plots'):
 # Call the modified run_sir_model function with user input and slider values
 fig,gif_path = run_sir_model(total_population, initial_infected, initial_recovered, beta, gamma, mode="run")
 st.write("Static Population Model Output:")
