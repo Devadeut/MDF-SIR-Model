@@ -2,3 +2,4 @@ modeci_mdf
 graphviz 
 ipython
 plotly
+imageio
