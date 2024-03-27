@@ -9,8 +9,8 @@ from modeci_mdf.mdf import*
 import matplotlib.pyplot as plt
 import os
 import sys
-import streamlit as st
 from matplotlib.animation import FuncAnimation  
+import imageio
 
 # Rest of the code remains the same
 
@@ -191,41 +191,67 @@ def main(total_population=1000, initial_infected=1, initial_recovered=0, beta=0.
         plt.tight_layout()  # Adjust layout to prevent overlap
         plt.show()
     
-    
-        # Create an animated line graph
-        fig2, ax = plt.subplots()
-        ax.plot(times, s, label='Susceptible', color='blue')
-        ax.plot(times, i, label='Infected', color='orange')
-        ax.plot(times, r, label='Recovered', color='green')
-        ax.xaxis.set_major_locator(plt.MaxNLocator(6))
-        ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: '{:.1f}'.format(x)))
-        ax.set_xlabel('Time')
-        ax.set_ylabel('Population')
-        ax.set_title('Population over time')
-        ax.legend()
-        ax.grid(True)
-       
-    
-        def animate(frame):
-            ax.clear()
+        # Prepare an array to hold the rendered frames
+        frames = []
+
+        # Generate frames
+        for frame in range(len(times)):
+            fig, ax = plt.subplots()
             ax.plot(times[:frame+1], s[:frame+1], label='Susceptible', color='blue')
-            ax.plot(times[:frame+1], i[:frame+1], label='Infected', color='orange')  
+            ax.plot(times[:frame+1], i[:frame+1], label='Infected', color='orange')
             ax.plot(times[:frame+1], r[:frame+1], label='Recovered', color='green')
             ax.xaxis.set_major_locator(plt.MaxNLocator(6))
-            ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: '{:.1f}'.format(x)))
+            ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: '{:.1f}'.format(x)))
             ax.set_xlabel('Time')
             ax.set_ylabel('Population')
             ax.set_title('Population over time')
             ax.legend()
             ax.grid(True)
-            return[ax]
     
-        anim = FuncAnimation(fig2, animate, frames=times, interval=50, blit=True)
-        # Save the animated plot
-        anim.save('animated_plot.gif', writer='imagemagick')
-        plt.show()
+            # Convert the Matplotlib figure to a RGB array and close the figure to free memory
+            fig.canvas.draw()
+            image = np.frombuffer(fig.canvas.tostring_rgb(), dtype='uint8')
+            image = image.reshape(fig.canvas.get_width_height()[::-1] + (3,))
+            frames.append(image)
+            plt.close(fig)
 
-        return [fig1, anim]
+        # Save the frames as a GIF
+        imageio.mimsave('animated_plot.gif', frames, fps=20) 
+        # # Create an animated line graph
+        # fig2, ax = plt.subplots()
+        # ax.plot(times, s, label='Susceptible', color='blue')
+        # ax.plot(times, i, label='Infected', color='orange')
+        # ax.plot(times, r, label='Recovered', color='green')
+        # ax.xaxis.set_major_locator(plt.MaxNLocator(6))
+        # ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: '{:.1f}'.format(x)))
+        # ax.set_xlabel('Time')
+        # ax.set_ylabel('Population')
+        # ax.set_title('Population over time')
+        # ax.legend()
+        # ax.grid(True)
+       
+    
+        # def animate(frame):
+        #     ax.clear()
+        #     ax.plot(times[:frame+1], s[:frame+1], label='Susceptible', color='blue')
+        #     ax.plot(times[:frame+1], i[:frame+1], label='Infected', color='orange')  
+        #     ax.plot(times[:frame+1], r[:frame+1], label='Recovered', color='green')
+        #     ax.xaxis.set_major_locator(plt.MaxNLocator(6))
+        #     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: '{:.1f}'.format(x)))
+        #     ax.set_xlabel('Time')
+        #     ax.set_ylabel('Population')
+        #     ax.set_title('Population over time')
+        #     ax.legend()
+        #     ax.grid(True)
+        #     return[ax]
+    
+        # anim = FuncAnimation(fig2, animate, frames=times, interval=50, blit=True)
+        # # Save the animated plot
+        # anim.save('animated_plot.gif', writer='imagemagick')
+        # plt.show()
+
+        # return [fig1, anim]
+        return [fig1]
 
     elif mode=="graph":
 
