@@ -14,7 +14,7 @@ from matplotlib.animation import FuncAnimation
 
 # Rest of the code remains the same
 
-def main(total_population, initial_infected, initial_recovered, beta, gamma, mode=None):
+def main(total_population=1000, initial_infected=1, initial_recovered=0, beta=0.3, gamma=0.1, mode=None):
     # Initialize the Model
     sir_model = Model(id="SIR_Model")
 
